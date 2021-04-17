@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
-import { SandwichFormComponent } from './sandwich-form/sandwich-form.component'
+import { SandwichFormComponent } from './sandwich-form/sandwich-form.component';
+import { SandwichListComponent } from './sandwich-list/sandwich-list.component'
 
 
 @NgModule({
   declarations: [
-    SandwichFormComponent
+    SandwichFormComponent,
+    SandwichListComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { SandwichFormComponent } from './sandwich-form/sandwich-form.component'
     HttpClientModule
   ],
   exports: [
-    SandwichFormComponent
+    SandwichFormComponent,
+    SandwichListComponent
   ]
 })
 export class SandwichModule { }

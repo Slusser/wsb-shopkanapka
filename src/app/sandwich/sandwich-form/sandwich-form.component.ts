@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ingredient, Sauce } from '../sandwich';
+import { SandwichService } from '../sandwich.service';
 
 @Component({
   selector: 'wsb-sandwich-form',
@@ -20,7 +21,7 @@ export class SandwichFormComponent implements OnInit {
   ]
 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private sandwichService: SandwichService) { }
 
   public ngOnInit(): void {
     this.sandwichForm = this.formBuilder.group({
@@ -38,12 +39,47 @@ export class SandwichFormComponent implements OnInit {
     })
   }
 
-  public save():void {
-    this.showErrors = true;
-    const formValue = this.sandwichForm.getRawValue();
 
-    //sprawdzamy
-    console.log(formValue)
+  public mapIngredients(ingredients) {
+    // 1st METHOD
+    // let selectedIngredients = [];
+
+    // for (let key in ingredients) {
+    //   const value = ingredients[key];
+
+    //   if (value === true) {
+    //     selectedIngredients.push(key);
+    //   }
+    // }
+
+    // return selectedIngredients;
+
+    // 2nd METHOD
+    return Object.entries(ingredients) // -> [ ['lettuce', true], ['tomato', true], ['ham', false] ]
+                .filter(entry => entry[1]) // -> [ ['lettuce', true], ['tomato', true] ]
+                .map(entry => entry[0]); // -> ['lettuce', 'tomato']
+  }
+
+  public save(): void {
+    this.showErrors = true;
+
+    const formValue = this.sandwichForm.getRawValue();
+    const sandwich = {
+      ...formValue,
+      ingredients: this.mapIngredients(formValue.ingredients)
+    }
+
+    // this.sandwichService.postSandwich(/* ??? */)
+
+    // SPRAWDZAMY ZAWARTOSC FORMULARZA
+    console.log(this.mapIngredients(formValue.ingredients));
+
+    if (this.sandwichForm.valid){
+      this.sandwichService.postSandwich(sandwich)
+      .then(response => {
+        console.log('Kanapka zapisana!', response)
+      })
+    }
   }
 
 }
