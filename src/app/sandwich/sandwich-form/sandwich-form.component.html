@@ -5,6 +5,8 @@
         <label>Name
             <input type="text" formControlName="name">
         </label>
+
+        <p *ngIf="showErrors && sandwichForm.get('name').errors?.minlength" class="error">Nazwa kanapki musi mieć co najmniej 5 znaków!</p>
     </section>
 
     <section>
@@ -43,6 +45,9 @@
             Price
             <input type="number" formControlName="price">
         </label>
+
+        <p *ngIf="showErrors && sandwichForm.get('price').errors?.min" class="error">Nazwa kanapki nie może być niższa niż 0!</p>
+        <p *ngIf="showErrors && sandwichForm.get('price').errors?.max" class="error">Nazwa kanapki nie może być wyższa niż 20!</p>
     </section>
 
     <section>

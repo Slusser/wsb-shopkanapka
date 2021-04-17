@@ -5,11 +5,12 @@ import { Ingredient, Sauce } from '../sandwich';
 @Component({
   selector: 'wsb-sandwich-form',
   templateUrl: './sandwich-form.component.html',
-  styles: [
-  ]
+  styleUrls: ['./sandwich-form.component.css']
 })
 export class SandwichFormComponent implements OnInit {
   public sandwichForm: FormGroup;
+
+  public showErrors: boolean;
 
   public sauces = [
     { label: 'no sauce', value: Sauce.None},
@@ -38,6 +39,7 @@ export class SandwichFormComponent implements OnInit {
   }
 
   public save():void {
+    this.showErrors = true;
     const formValue = this.sandwichForm.getRawValue();
 
     //sprawdzamy
