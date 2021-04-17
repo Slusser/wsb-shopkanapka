@@ -20,5 +20,5 @@ export interface Sandwich{
     ingredients: Ingredient[];
     sauce: Sauce;
     vege: boolean;
-    pice: number;
+    price: number;
 }

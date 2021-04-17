@@ -9,6 +9,8 @@ import { SandwichService } from '../sandwich.service';
 })
 export class SandwichListComponent implements OnInit {
 
+  public sandwiches = this.sandwichService.getSandwiches();
+
   constructor(private sandwichService: SandwichService) { }
 
   ngOnInit(): void {

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { SandwichFormComponent } from './sandwich-form/sandwich-form.component';
-import { SandwichListComponent } from './sandwich-list/sandwich-list.component'
+import { SandwichListComponent } from './sandwich-list/sandwich-list.component';
+import { SandwichItemComponent } from './sandwich-item/sandwich-item.component'
 
 
 @NgModule({
   declarations: [
     SandwichFormComponent,
-    SandwichListComponent
+    SandwichListComponent,
+    SandwichItemComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { SandwichListComponent } from './sandwich-list/sandwich-list.component'
   ],
   exports: [
     SandwichFormComponent,
-    SandwichListComponent
+    SandwichListComponent,
+    SandwichItemComponent
   ]
 })
 export class SandwichModule { }

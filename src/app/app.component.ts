@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
       </h1>
     </div>
     <wsb-sandwich-form></wsb-sandwich-form>
+    <wsb-sandwich-list></wsb-sandwich-list>
     <router-outlet></router-outlet>
   `,
   styles: []

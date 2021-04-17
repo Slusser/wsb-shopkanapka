@@ -56,6 +56,16 @@
       "vege": true,
       "price": 7,
       "id": 5
+    },
+    {
+      "name": "dewrwr",
+      "ingredients": [
+        "tomato"
+      ],
+      "sauce": "bbq",
+      "vege": true,
+      "price": 3,
+      "id": 6
     }
   ]
 }
