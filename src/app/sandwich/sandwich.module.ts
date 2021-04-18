@@ -4,20 +4,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { SandwichFormComponent } from './sandwich-form/sandwich-form.component';
 import { SandwichListComponent } from './sandwich-list/sandwich-list.component';
-import { SandwichItemComponent } from './sandwich-item/sandwich-item.component'
+import { SandwichItemComponent } from './sandwich-item/sandwich-item.component';
+import { RouterModule } from "@angular/router";
+import { SandwichDetailsComponent } from './sandwich-details/sandwich-details.component'
+import { sandwichRoutes } from './sandwich.routes';
+
 
 
 @NgModule({
   declarations: [
     SandwichFormComponent,
     SandwichListComponent,
-    SandwichItemComponent
+    SandwichItemComponent,
+    SandwichDetailsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forChild(
+      sandwichRoutes
+    )
   ],
   exports: [
     SandwichFormComponent,

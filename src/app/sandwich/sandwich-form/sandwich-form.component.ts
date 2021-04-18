@@ -67,6 +67,7 @@ export class SandwichFormComponent implements OnInit {
     const sandwich = {
       ...formValue,
       ingredients: this.mapIngredients(formValue.ingredients)
+    
     }
 
     // this.sandwichService.postSandwich(/* ??? */)
@@ -78,8 +79,25 @@ export class SandwichFormComponent implements OnInit {
       this.sandwichService.postSandwich(sandwich)
       .then(response => {
         console.log('Kanapka zapisana!', response)
+        this.showErrors=false;
+        this.reset();
       })
     }
   }
 
+  public reset(): void{
+    this.sandwichForm.reset({
+      name: '',
+      ingredients: ({
+        [Ingredient.Lettuce]: false,  //--> lettuce false
+        [Ingredient.Tomato]: false,
+        [Ingredient.Ham]: false,
+        [Ingredient.Chorizo]: false,
+        [Ingredient.Cheese]: false
+      }),
+      sauce: Sauce.None,
+      vege: false,
+      price: 0
+    })
+  }
 }

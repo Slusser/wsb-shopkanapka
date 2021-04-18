@@ -66,6 +66,28 @@
       "vege": true,
       "price": 3,
       "id": 6
+    },
+    {
+      "name": "ghvnc",
+      "ingredients": [
+        "tomato",
+        "ham"
+      ],
+      "sauce": "bbq",
+      "vege": true,
+      "price": 7,
+      "id": 7
+    },
+    {
+      "name": "ghvnc",
+      "ingredients": [
+        "tomato",
+        "ham"
+      ],
+      "sauce": "bbq",
+      "vege": true,
+      "price": 7,
+      "id": 8
     }
   ]
 }
