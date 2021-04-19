@@ -1,4 +1,16 @@
 <p>sandwich-list works!</p>
 
+<!-- <section>
+    <input type="text" #querryInput>
+    <button type="button" (click)="find(querryInput.value)">Find</button>
+</section> -->
 
-<wsb-sandwich-item *ngFor="let sandwich of sandwiches | async" [data]="sandwich"></wsb-sandwich-item>
+<section>
+    <input type="text" #querryInput>
+    <button type="button" (click)="find2()">Find</button>
+</section>
+
+
+<section>
+    <wsb-sandwich-item *ngFor="let sandwich of sandwiches | async" [data]="sandwich"></wsb-sandwich-item>
+</section>

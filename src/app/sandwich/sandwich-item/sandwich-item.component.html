@@ -1,5 +1,5 @@
 <section>
-    <h4>{{sandwich.name}}</h4>
+    <h4><a [routerLink]="['/sandwiches',sandwich.id]">{{sandwich.name}}</a></h4>
     <p><strong>Ingredients:</strong>{{sandwich.ingredients.join(', ')}}</p>
     <p><strong>Price:</strong>{{sandwich.price | currency}}</p>
     <p></p>

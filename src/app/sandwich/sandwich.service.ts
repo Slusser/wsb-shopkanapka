@@ -21,4 +21,9 @@ export class SandwichService {
   public getSandwich(id: string | number){
     return this.httpClient.get(`${this.url}/${id}`).toPromise();
   }
+
+  public querrySandwiches(querry: string){
+    return this.httpClient.get(`${this.url}?q=${querry}`).toPromise();
+  }
+
 }
